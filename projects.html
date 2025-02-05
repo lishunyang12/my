@@ -82,7 +82,7 @@
                   <li data-filter="*" class="filter-active">All</li>
                   <li data-filter=".filter-calibur">Calibur Robotics</li>
                   <li data-filter=".filter-Coursework">Coursework</li>
-                  <li data-filter=".filter-Individual">Individual/Intern</li>
+                  <li data-filter=".filter-Individual">Individual/Int</li>
               </ul><!-- End Portfolio Filters -->
 
 
@@ -209,19 +209,59 @@
                       </div>
                   </div><!-- End Portfolio Item -->
 
-
-
-
                   <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-Coursework">
-                      <img src="assets/img/masonry-portfolio/pic7.jpg" class="img-fluid" alt="">
-                      <div class="portfolio-info">
-                          <h4>Introductory Embedded system Obstacle Challenge</h4>
-                          <p>
-                              A self-powered robot that navigates an obstacle course consisting of a starting area, a bump, a ramp, and a wall, and
-                              delivers a ping pong ball over the wall.
-                          </p>
-                          <a href="assets/img/masonry-portfolio/pic7.jpg" title="" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                      <!-- 插入视频标签，并添加一个id以便JS引用 -->
+                      <video id="brandingVideo" width="100%" height="auto" autoplay muted loop>
+                          <source src="assets/img/masonry-portfolio/video3.mp4" type="video/mp4">
+                          您的浏览器不支持HTML5视频标签。
+                      </video>
 
+                      <div class="portfolio-info">
+                          <h4>FPGA Handwriting Recognition Challenge</h4>
+                          <p id="brandingDescription">Verilog-based Various functionalities displayed on Pmod connected to a Basys 3 Board</p>
+                          <!-- 如果需要的话，可以保留或修改视频预览链接 -->
+                          <!-- <a href="assets/img/masonry-portfolio/video3.mp4" title="Branding Video" data-gallery="portfolio-gallery-branding" class="glightbox preview-link" target="_blank"><i class="bi bi-zoom-in"></i></a> -->
+
+                      </div>
+                  </div><!-- End Portfolio Item -->
+
+                  <script>
+                      document.addEventListener('DOMContentLoaded', function () {
+                          var video = document.getElementById('brandingVideo');
+                          var description = document.getElementById('brandingDescription');
+                          var originalDescription = description.textContent; // 保存原始描述以便需要时恢复
+
+                          // 禁用autoplay属性（可选，因为我们在JS中控制播放）
+                          // 但由于autoplay可能受到浏览器策略限制，这一步通常是必要的
+                          video.removeAttribute('autoplay');
+
+                          // 添加鼠标事件监听器到视频元素的父元素（或使用视频元素本身，但考虑到可能的控件覆盖，使用父元素更安全）
+                          video.parentElement.addEventListener('mouseenter', function () {
+                              video.pause(); // 鼠标移入时暂停视频
+                              // 更改描述文本以提供交互反馈
+                              description.textContent = 'Verilog-based game interaction running on Pmod connected to a Basys 3 Board';
+                          });
+
+                          video.parentElement.addEventListener('mouseleave', function () {
+                              video.play(); // 鼠标移出时恢复播放视频
+                              // 恢复原始描述文本（如果需要的话）
+                              description.textContent = originalDescription;
+                          });
+
+                          // 可选：如果需要在页面加载时立即播放视频（尽管我们已经移除了autoplay属性），可以在这里调用video.play()
+                          // 但由于我们已经在mouseenter事件中处理了播放逻辑，所以这一步通常是不必要的
+                          // video.play();
+                      });
+                  </script>
+
+
+                  <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-calibur">
+                      <img src="assets/img/masonry-portfolio/SlipringPcb.jpg" class="img-fluid" alt="">
+                      <div class="portfolio-info">
+                          <h4>Slipring PCB</h4>
+                          <p>Gimbal and chassis PCB depolyed to ensure stable CAN communication in rotational acceleration</p>
+                          <a href="assets/img/masonry-portfolio/SlipringPcb.jpg" title="Product 3" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                          <a href="slipring_PCB-detail.html" class="details-link"><i class="bi bi-link-45deg"></i></a>
                       </div>
                   </div><!-- End Portfolio Item -->
 
@@ -233,80 +273,7 @@
                               A self-powered robot that navigates an obstacle course consisting of a starting area, a bump, a ramp, and a wall, and
                               delivers a ping pong ball over the wall.
                           </p>
-                          <a href="assets/img/masonry-portfolio/pic7.jpg" title="" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-
-                      </div>
-                  </div><!-- End Portfolio Item -->
-
-
-                  <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-Coursework">
-                      <img src="assets/img/masonry-portfolio/pic7.jpg" class="img-fluid" alt="">
-                      <div class="portfolio-info">
-                          <h4>Introductory Embedded system Obstacle Challenge</h4>
-                          <p>
-                              A self-powered robot that navigates an obstacle course consisting of a starting area, a bump, a ramp, and a wall, and
-                              delivers a ping pong ball over the wall.
-                          </p>
-                          <a href="assets/img/masonry-portfolio/pic7.jpg" title="" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-
-                      </div>
-                  </div><!-- End Portfolio Item -->
-
-
-
-                  <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-Coursework">
-                      <img src="assets/img/masonry-portfolio/pic7.jpg" class="img-fluid" alt="">
-                      <div class="portfolio-info">
-                          <h4>Introductory Embedded system Obstacle Challenge</h4>
-                          <p>
-                              A self-powered robot that navigates an obstacle course consisting of a starting area, a bump, a ramp, and a wall, and
-                              delivers a ping pong ball over the wall.
-                          </p>
-                          <a href="assets/img/masonry-portfolio/pic7.jpg" title="" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-
-                      </div>
-                  </div><!-- End Portfolio Item -->
-
-
-
-                  <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-Coursework">
-                      <img src="assets/img/masonry-portfolio/pic7.jpg" class="img-fluid" alt="">
-                      <div class="portfolio-info">
-                          <h4>Introductory Embedded system Obstacle Challenge</h4>
-                          <p>
-                              A self-powered robot that navigates an obstacle course consisting of a starting area, a bump, a ramp, and a wall, and
-                              delivers a ping pong ball over the wall.
-                          </p>
-                          <a href="assets/img/masonry-portfolio/pic7.jpg" title="" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-
-                      </div>
-                  </div><!-- End Portfolio Item -->
-
-
-                  <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-Coursework">
-                      <img src="assets/img/masonry-portfolio/pic7.jpg" class="img-fluid" alt="">
-                      <div class="portfolio-info">
-                          <h4>Introductory Embedded system Obstacle Challenge</h4>
-                          <p>
-                              A self-powered robot that navigates an obstacle course consisting of a starting area, a bump, a ramp, and a wall, and
-                              delivers a ping pong ball over the wall.
-                          </p>
-                          <a href="assets/img/masonry-portfolio/pic7.jpg" title="" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-
-                      </div>
-                  </div><!-- End Portfolio Item -->
-
-
-
-                  <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-Coursework">
-                      <img src="assets/img/masonry-portfolio/pic7.jpg" class="img-fluid" alt="">
-                      <div class="portfolio-info">
-                          <h4>Introductory Embedded system Obstacle Challenge</h4>
-                          <p>
-                              A self-powered robot that navigates an obstacle course consisting of a starting area, a bump, a ramp, and a wall, and
-                              delivers a ping pong ball over the wall.
-                          </p>
-                          <a href="assets/img/masonry-portfolio/pic7.jpg" title="" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                          <a href="assets/img/masonry-portfolio/pic7.jpg" title="Product 3" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
 
                       </div>
                   </div><!-- End Portfolio Item -->
