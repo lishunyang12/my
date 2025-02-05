@@ -26,6 +26,14 @@
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Kelly
+  * Template URL: https://bootstrapmade.com/kelly-free-bootstrap-cv-resume-html-template/
+  * Updated: Aug 07 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
 </head>
 
 <body class="portfolio-page">
@@ -110,12 +118,13 @@
                       <!-- 插入视频标签，移除controls属性，保留autoplay、muted和loop属性 -->
                       <video width="100%" height="auto" autoplay muted loop>
                           <source src="assets/img/masonry-portfolio/video1.mp4" type="video/mp4">
+                          您的浏览器不支持HTML5视频标签。
                       </video>
 
                       <div class="portfolio-info">
                           <h4>ArmorPlate CV tracker</h4>
                           <p>Resnet and classical computer vision techniques to track and predict armor plates' 3-D position. Algo depolyed on realsense D435i and Rpi4 and send position data to STM32 via USART</p>
-                          
+                          <!-- 如果不需要视频预览链接，可以移除下面的<a>标签 -->
                           <!-- <a href="assets/img/masonry-portfolio/video1.mp4" title="Product Video" data-gallery="portfolio-gallery-product" class="glightbox preview-link" target="_blank"><i class="bi bi-zoom-in"></i></a> -->
                       </div>
                   </div><!-- End Portfolio Item -->
@@ -152,13 +161,13 @@
                       <!-- 插入视频标签，添加autoplay（这里先不加，因为我们要通过JS控制播放）、muted和loop属性，并添加一个id以便JS可以引用它 -->
                       <video id="portfolioVideo" width="100%" height="auto" muted loop>
                           <source src="assets/img/masonry-portfolio/video2.mp4" type="video/mp4">
-       
+                          您的浏览器不支持HTML5视频标签。
                       </video>
                       <div class="portfolio-info">
-     
+                          <!-- 初始描述文本 -->
                           <h4>Mecanum wheel Chassis Control</h4>
                           <p id="portfolioDescription">Lorem ipsum, dolor sit</p>
-           
+                          <!-- 更改链接（虽然链接可能仍然指向视频文件，但标题已经更新或可以保持不变） -->
                           <a href="assets/img/masonry-portfolio/video2.mp4" title="Mecanum wheel Chassis Control Video" data-gallery="portfolio-gallery-branding" class="glightbox preview-link" target="_blank"><i class="bi bi-zoom-in"></i></a>
                       </div>
                   </div>
@@ -181,6 +190,8 @@
 
                           video.parentElement.addEventListener('mouseleave', function () {
                               video.play(); // 鼠标移出时重新播放视频
+                              // 如果需要在鼠标移出时恢复原始描述，可以在这里设置
+                              // 但根据您的要求，这里不恢复，保持新的描述
                           });
                       });
                   </script>
@@ -197,51 +208,6 @@
 
                       </div>
                   </div><!-- End Portfolio Item -->
-
-                  <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-Coursework">
-                      <!-- 插入视频标签，并添加一个id以便JS引用 -->
-                      <video id="brandingVideo" width="100%" height="auto" autoplay muted loop>
-                          <source src="assets/img/masonry-portfolio/video3.mp4" type="video/mp4">
-
-                      </video>
-
-                      <div class="portfolio-info">
-                          <h4>FPGA Handwriting Recognition Challenge</h4>
-                          <p id="brandingDescription">Verilog-based Various functionalities displayed on Pmod connected to a Basys 3 Board</p>
-
-                          <!-- <a href="assets/img/masonry-portfolio/video3.mp4" title="Branding Video" data-gallery="portfolio-gallery-branding" class="glightbox preview-link" target="_blank"><i class="bi bi-zoom-in"></i></a> -->
-
-                      </div>
-                  </div><!-- End Portfolio Item -->
-
-                  <script>
-                      document.addEventListener('DOMContentLoaded', function () {
-                          var video = document.getElementById('brandingVideo');
-                          var description = document.getElementById('brandingDescription');
-                          var originalDescription = description.textContent; // 保存原始描述以便需要时恢复
-
-                          // 禁用autoplay属性（可选，因为我们在JS中控制播放）
-                          // 但由于autoplay可能受到浏览器策略限制，这一步通常是必要的
-                          video.removeAttribute('autoplay');
-
-                          // 添加鼠标事件监听器到视频元素的父元素（或使用视频元素本身，但考虑到可能的控件覆盖，使用父元素更安全）
-                          video.parentElement.addEventListener('mouseenter', function () {
-                              video.pause(); // 鼠标移入时暂停视频
-                              // 更改描述文本以提供交互反馈
-                              description.textContent = 'Verilog-based game interaction running on Pmod connected to a Basys 3 Board';
-                          });
-
-                          video.parentElement.addEventListener('mouseleave', function () {
-                              video.play(); // 鼠标移出时恢复播放视频
-                              // 恢复原始描述文本（如果需要的话）
-                              description.textContent = originalDescription;
-                          });
-
-                          // 可选：如果需要在页面加载时立即播放视频（尽管我们已经移除了autoplay属性），可以在这里调用video.play()
-                          // 但由于我们已经在mouseenter事件中处理了播放逻辑，所以这一步通常是不必要的
-                          // video.play();
-                      });
-                  </script>
 
 
                   <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-calibur">
