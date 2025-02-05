@@ -55,9 +55,8 @@
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </nav>
 
-            <div class="header-social-links">
-                <a href="https://github.com/lishunyang12"><i class="bi bi-github"></i></a>
-                <a href="https://www.linkedin.com/in/shunyangli/"><i class="bi bi-linkedin"></i></a>
+            <div class="header-language-toggle">
+                <button id="language-toggle" class="btn btn-link">中文</button>
             </div>
 
         </div>
@@ -83,20 +82,21 @@
 
           <img src="assets/img/hero-bg.jpg" alt="" data-aos="fade-in">
 
-          <div class="container text-center" data-aos="zoom-out" data-aos-delay="100">
-              <div class="row justify-content-center">
-                  <div class="col-lg-8">
-                      <h2>Hi, I am Shunyang</h2>
+<div class="container text-center" data-aos="zoom-out" data-aos-delay="100">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <h2>Li Shunyang</h2>
 
-                      <p>Firmware developer in <a href="https://www.nusrobomaster.com/" class="calibur-link" target="_blank">NUS Calibur Robotics</a></p>
-                      <p>You can view my resume <a href="assets/my-resume.pdf" class="btn-resume" download><span class="smaller-text underline">here</span></a>.</p>
+            <p>I'm developing firmware for a 6-Dof Robotic arm for</p>
+            <p> <a href="https://www.nusrobomaster.com/" class="calibur-link" target="_blank">NUS Calibur Robotics</a></p>
+            <p> <a href="assets/my-resume.pdf" class="btn-resume" download><span class="smaller-text underline">here</span></a></p>
 
-                      <!-- 注意：将"link-to-calibur-robotics"替换为实际的Calibur Robotics链接 -->
-                      <!-- 注意：我添加了target="_blank"属性，以便在新标签页中打开链接 -->
-                      <a href="projects.html" class="btn-get-started">Projects</a>
-                  </div>
-              </div>
-          </div>
+            <!-- 注意：将"link-to-calibur-robotics"替换为实际的Calibur Robotics链接 -->
+            <!-- 注意：我添加了target="_blank"属性，以便在新标签页中打开链接 -->
+            <a href="projects.html" class="btn-get-started">Projects</a>
+        </div>
+    </div>
+</div>
 
       </section><!-- /Hero Section -->
 
@@ -135,6 +135,73 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+
+
+  <script>
+      document.addEventListener('DOMContentLoaded', (event) => {
+          // 从localStorage获取当前语言，默认为'en'
+          let currentLanguage = localStorage.getItem('language') || 'en';
+
+          const translations = {
+              en: {
+                  title: "Yang",
+                  home: "Home",
+                  projects: "Projects",
+                  hi: "Hi, I am Shunyang",
+                  firmwareDeveloper: "I'm developing firmware for a 6-Dof Robotic arm for",
+                  viewResume: "You can view my resume here",
+                  projectsLink: "Projects",
+                  copyright: "© Copyright Terrence All Rights Reserved"
+              },
+              zh: {
+                  title: "Yang",
+                  home: "主页",
+                  projects: "项目",
+                  hi: "Hi，我是顺阳",
+                  firmwareDeveloper: "作为固件成员，我正在为NUS Calibur Robotics开发六轴机械臂",
+                  viewResume: "您可以在这里查看我的简历",
+                  projectsLink: "项目",
+                  copyright: "© 版权所有 Terrence 保留所有权利"
+              }
+          };
+
+          function setLanguage(lang) {
+              // 更新页面上的文本
+              document.querySelector('title').textContent = translations[lang].title;
+              document.querySelector('.sitename').textContent = translations[lang].title;
+              document.querySelector('#navmenu ul li:nth-child(1) a').textContent = translations[lang].home;
+              document.querySelector('#navmenu ul li:nth-child(2) a').textContent = translations[lang].projects;
+              document.querySelector('.hero h2').textContent = translations[lang].hi;
+              document.querySelector('.hero p').innerHTML = translations[lang].firmwareDeveloper;
+              document.querySelector('.hero .btn-resume span').textContent = translations[lang].viewResume;
+              document.querySelector('.btn-get-started').textContent = translations[lang].projectsLink;
+              document.querySelector('.footer .copyright p').innerHTML = translations[lang].copyright;
+
+              // 更新语言切换按钮的文本
+              document.getElementById('language-toggle').textContent = lang === 'en' ? '中文' : 'English';
+
+              // 更新currentLanguage变量以反映当前语言
+              currentLanguage = lang; // 这里是关键，确保currentLanguage在函数内部被更新
+
+          }
+
+          // 初始设置语言
+          setLanguage(currentLanguage);+
+
+          // 语言切换按钮的点击事件监听器
+          document.getElementById('language-toggle').addEventListener('click', () => {
+              // 直接切换语言，无需再次从localStorage获取currentLanguage
+              const newLanguage = currentLanguage === 'en' ? 'zh' : 'en';
+              setLanguage(newLanguage);
+
+              // 由于我们在setLanguage函数内部已经更新了currentLanguage，
+              // 这里不需要再次设置localStorage，因为setLanguage函数内部已经做了这件事。
+              // 但为了清晰起见，我们可以保留这行代码的注释，说明它实际上在setLanguage内部已经处理。
+              // localStorage.setItem('language', newLanguage); // 这行代码在setLanguage内部已经执行
+          });
+      });
+  </script>
+
 
 </body>
 
